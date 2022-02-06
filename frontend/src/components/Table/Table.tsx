@@ -19,7 +19,7 @@ function Table(props: TableProps) {
 
 		<div id="cities-table-wrapper">
 			
-			<table id="antonia">
+			<table>
 				
 				<thead>
 					<tr>

@@ -61,8 +61,7 @@ function App() {
       		setCityQuery({
 				  ...cityQuery, 
 				  country: countryName,
-				  from: 0,
-				  search: ""
+				  from: 0
 			});
     	}
 	}

@@ -12,7 +12,7 @@ const   CITIES_HOST = "http://localhost:3001/api/cities",
         DEFAULT_FROM = 0;
 
 
-function parseRawCities(rawCities: any[]): City[] {
+export function parseRawCities(rawCities: any[]): City[] {
 
     let cities: City[] = [],
         fallbackMessage = "Unknown";
@@ -35,7 +35,7 @@ function parseRawCities(rawCities: any[]): City[] {
     return cities;
 }
 
-async function handleResponse(response: Response): Promise<City[]> {
+export async function handleResponse(response: Response): Promise<City[]> {
 
     let cities: City[] = [],
         rawCities: any[];
@@ -48,7 +48,7 @@ async function handleResponse(response: Response): Promise<City[]> {
     return cities;
 }
 
-async function request(endpoint: string): Promise<City[]> {
+export async function request(endpoint: string): Promise<City[]> {
 
     let cities: City[] = [],
         response: Response;

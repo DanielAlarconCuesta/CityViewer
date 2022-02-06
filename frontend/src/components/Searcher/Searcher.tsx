@@ -13,7 +13,10 @@ function Searcher(props: SearcherProps) {
     useEffect(() => {
 
         const timeout = setTimeout(() => {
-            props.handleOnChange(search)
+
+            if (props.handleOnChange) {
+                props.handleOnChange(search);
+            }
         }, 500)
 
         return () => {
@@ -29,11 +32,10 @@ function Searcher(props: SearcherProps) {
         <nav>
             <button 
                 onClick={cleanSearch}
-            >
-                Clean
-            </button>
+            >Clean</button>
             
             <input 
+                type={"text"}
                 placeholder={"Type a City"} 
                 value={search} 
                 onChange={(event) => setSearch(event.currentTarget.value)}
