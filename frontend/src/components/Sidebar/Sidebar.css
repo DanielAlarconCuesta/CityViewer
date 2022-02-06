@@ -1,3 +1,27 @@
 #sidebar {
-  width: 200px;
+  width: 400px;
+  height: 78vh;
+  overflow-y: scroll;
+}
+
+#sidebar > ul {
+  list-style-type: none;
+}
+
+#sidebar > ul > li {
+  width: 90%;
+  padding-left: 1rem;
+  list-style-type: none;
+  text-align: start;
+  cursor: pointer;
+}
+
+#sidebar > ul > li:hover {
+  background-color: lightcoral;
+  border-radius: 10px;
+}
+
+.highlighted {
+  background-color: yellow;
+  border-radius: 10px;
 }

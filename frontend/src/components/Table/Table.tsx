@@ -1,45 +1,65 @@
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import City from "../../types/City";
-
-import CityQuery from "../../types/CityQuery";
-
 import "./Table.css";
 
-import CityService from "../../services/CityService/CityService";
-import CountryService from "../../services/CountryService/CountryService";
 
-export const Table = () => {
-	const [cities, setCities] = useState<City[] | null>(null);
+type TableProps = {
+    cities: City[],
+	lastCityElementRef: any
+}
 
-	useEffect(() => {
-			
+const LINK_HOST = "https://www.geonames.org/";
 
-			let cityQuery: CityQuery = {
-				country: "Spain",
-				search: "Barcelona"
-			}
-
-			CityService.getCities(cityQuery).then(setCities);
-			CountryService.getCountries().then(countries => console.log(countries));
-	}, []);
+function Table(props: TableProps) {
+	
+	const { cities } = props;
 
 	return (
+
 		<div id="cities-table-wrapper">
-			<table>
+			
+			<table id="antonia">
+				
 				<thead>
 					<tr>
-						<th>City</th>
+						<th>Name</th>
+						<th>Country</th>
+						<th>Sub Country</th>
+						<th>Link</th>
 					</tr>
 				</thead>
+
 				<tbody>
-					{cities?.map((city, index) => (
-						<tr key={index}>
-							<td>{city.name}</td>
-						</tr>
-					))}
+					{
+						cities?.map((city, index) => {
+							const isLastElement = cities.length === index + 1;
+        				
+							return (
+								<tr 
+									key={index} 
+									ref={isLastElement ? props.lastCityElementRef : null}
+								>
+									<td>{city.name}</td>
+									<td>{city.subcountry}</td>
+									<td>{city.country}</td>
+									<td>
+										{
+											city.geonameid 
+												? <a target="_blank" rel="noreferrer" href={`${LINK_HOST}${city.geonameid}`}>See Geoname</a> 
+												: <span>Not Available</span>
+										}
+									</td>
+								</tr>
+							)
+						})
+
+					}
 				</tbody>
-			</table>
+
+			</table>				
 		</div>
 	);
 };
+
+export default Table;

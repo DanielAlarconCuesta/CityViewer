@@ -1,11 +1,18 @@
 #cities-table-wrapper {
-  height: 100%;
-  flex-grow: 1;
-  overflow-y: scroll;
+  height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+#cities-table-wrapper > table > thead {
+  position: sticky;
+  top: 0;
+  background-color: yellow;
 }
 
 table {
   width: 100%;
+  padding-top: 20px;
   border-collapse: collapse;
   border-spacing: 0px;
 }
@@ -16,6 +23,5 @@ td {
 }
 
 th {
-  height: 40px;
   font-size: 18px;
 }
