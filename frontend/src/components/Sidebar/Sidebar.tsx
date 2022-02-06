@@ -21,7 +21,7 @@ function Sidebar(props: any) {
 			
 			<ul>
 				<li
-					className={(countrySelected == "" ? "highlighted" : "")}
+					className={(countrySelected === "" ? "highlighted" : "")}
 					onClick={() => {
 						setCountrySelected("")
 						props.onCountryClick("");
@@ -32,7 +32,7 @@ function Sidebar(props: any) {
 				{
 					countries.map(country => (
 						<li 
-							className={(countrySelected == country.name ? "highlighted" : "")}
+							className={(countrySelected === country.name ? "highlighted" : "")}
 							onClick={() => {
 								setCountrySelected(country.name)
 								props.onCountryClick(country.name);

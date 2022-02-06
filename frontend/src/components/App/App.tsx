@@ -24,7 +24,7 @@ function App() {
 	const [cities, setCities] = useState<City[]>([]);
 	const [searcherValue, setSearcherValue] = useState("");
 	
-	const { loading, error, hasMore } = useFetchCities(cityQuery, cities, setCities);
+	const { loading, hasMore } = useFetchCities(cityQuery, cities, setCities);
 	const observer: any = useRef(); // (*)
 	
 	const lastCityElementRef = useCallback(  // (*)
@@ -54,7 +54,7 @@ function App() {
 
 	const handleCountryClick = async (countryName: string = "") => {
 
-    	if (countryName != cityQuery.country) {
+    	if (countryName !== cityQuery.country) {
 			await setCities([]);
 			await setSearcherValue("");
 

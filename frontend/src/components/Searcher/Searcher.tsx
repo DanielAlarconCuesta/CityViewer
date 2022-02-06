@@ -22,7 +22,7 @@ function Searcher(props: SearcherProps) {
         return () => {
             clearTimeout(timeout);
         }
-    }, [search]);
+    }, [search]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const cleanSearch = function() {
         setSearch("")

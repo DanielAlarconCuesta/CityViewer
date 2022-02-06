@@ -28,7 +28,7 @@ function useFetchCities(cityQuery: CityQuery, cities: City[], setCities: any): a
 
     setLoading(false);
 
-  }, [cityQuery]);
+  }, [cityQuery]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     sendQuery();
