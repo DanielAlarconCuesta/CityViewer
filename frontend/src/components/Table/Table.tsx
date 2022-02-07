@@ -41,8 +41,8 @@ function Table(props: TableProps) {
 									ref={isLastElement ? props.lastCityElementRef : null}
 								>
 									<td>{city.name}</td>
-									<td>{city.subcountry}</td>
 									<td>{city.country}</td>
+									<td>{city.subcountry}</td>
 									<td>
 										{
 											city.geonameid 
